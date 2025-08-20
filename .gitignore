@@ -1,1 +1,3 @@
 .vscode/
+models/base_vox_433h.pt
+models/self_large_vox_433h.pt
