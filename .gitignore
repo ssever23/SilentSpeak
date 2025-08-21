@@ -1,6 +1,6 @@
 .vscode/
 models/base_vox_433h.pt
 models/self_large_vox_433h.pt
-input_video/
-preprocessed_files/
+data/
 .env
+notebooks/preprocessing_cuda.ipynb
