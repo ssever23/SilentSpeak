@@ -1,6 +1,5 @@
 .vscode/
-models/base_vox_433h.pt
-models/self_large_vox_433h.pt
+models/
 data/
 .env
 notebooks/preprocessing_cuda.ipynb
