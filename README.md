@@ -1,6 +1,8 @@
 # SilentSpeak
 An AI program that extracts speech from human lip movements in videos and voices it out.
 
+## AV-HuBERT
+
 This repository incorporates [AV-HuBERT](https://github.com/facebookresearch/av_hubert) for lip reading. AV-HuBERT is a self-supervised representation learning framework for audio-visual speech. It achieves state-of-the-art results in lip reading, ASR and audio-visual speech recognition on the LRS3 audio-visual speech benchmark. AV-HuBERT is licensed under the AV-HuBERT license, Copyright (c) Meta Platforms, Inc. All Rights Reserved.
 
 ## License
