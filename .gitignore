@@ -2,6 +2,6 @@
 model/
 data/
 .env
-notebooks/preprocessing_cuda.ipynb
+notebooks/alternatives/
 ext/
 audio.wav
