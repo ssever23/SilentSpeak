@@ -18,7 +18,7 @@ def main():
     video_path = input("Enter video path: ")
     
     # Preprocess video by extracting and storing lip movements
-    npy_file = preprocess_video(video_path)[0]
+    npy_file,_,_ = preprocess_video(video_path)
     
     # Identify speech by lip movements
     model_path = "/home/ssever/SilentSpeak/model/base_vox_433h.pt"
