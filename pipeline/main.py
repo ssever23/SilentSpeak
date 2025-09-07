@@ -21,8 +21,8 @@ def main():
     npy_file,_,_ = preprocess_video(video_path)
     
     # Identify speech by lip movements
-    model_path = "/home/ssever/SilentSpeak/model/base_vox_433h.pt"
-    lip_text = predict_speech(model_path=model_path, npy_path=npy_file)
+    vsr_model = "/home/ssever/SilentSpeak/model/base_vox_433h.pt"
+    lip_text = predict_speech(model_path=vsr_model, npy_path=npy_file)
     
     # Correct lip reading text with LLM
     api_key = os.getenv("GEMINI_API_KEY")
@@ -32,14 +32,14 @@ def main():
     # Transcribed speech from video audio for comparison
     reference_text = transcribe_speech_from_audio(video_path)
     
-    # Output spoken speech
+    # Create speech audio
     # Identify gender and age of person speaking
     _, age_median, gender = estimate_gender_and_age(video_path)
-    # Pich voice based on gender and age
+    # Pick voice based on gender and age
     voice = pick_voice(gender=gender, age_years=age_median)
     # Turn VSR text into spoken speech
-    out_wav = "/home/ssever/SilentSpeak/data/output_files/speech.wav"
-    speak = speak_text(text=speech, voice=voice, out_wav=out_wav)
+    out_wav = "/home/ssever/SilentSpeak/data/output_files/speech_audio.wav"
+    speech_audio = speak_text(text=speech, voice=voice, out_wav=out_wav)
     
     ga = f"\nGender and age of person speaking: {gender}, {age_median}\n\n"
     
@@ -55,7 +55,7 @@ def main():
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(out_txt)
     
-    audio_path = f"Speech audio file saved under: {speak}"
+    audio_path = f"Speech audio file saved under: {speech_audio}"
     
     return print(f"\nTexts saved under: {file_path}\n\n"
                  f"{audio_path}")
