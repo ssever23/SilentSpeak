@@ -1,3 +1,7 @@
+# ==================================
+# Section: Checking for lip movement
+# ==================================
+
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -143,6 +147,10 @@ def has_lip_movement(
         stats=dict(min=float(a.min()), med=float(np.median(a)), p90=hi, base=base)
     )
 
+
+# ======================================
+# Section: Checking for audio and speech
+# ======================================
 
 import subprocess
 import json
