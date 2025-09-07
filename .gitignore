@@ -2,6 +2,7 @@
 model/
 data/
 .env
-notebooks/alternatives/
 ext/
 audio.wav
+pipeline/__pycache__
+notebooks/
