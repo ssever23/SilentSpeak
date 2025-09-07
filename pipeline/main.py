@@ -17,9 +17,6 @@ def main():
     
     video_path = input("Enter video path: ")
     
-    # Actual speech from video audio for comparison
-    reference_text = transcribe_speech_from_audio(video_path)
-    
     # Preprocess video by extracting and storing lip movements
     npy_file = preprocess_video(video_path)[0]
     
@@ -31,6 +28,9 @@ def main():
     api_key = os.getenv("GEMINI_API_KEY")
     llm_model = "gemini-2.5-pro"
     speech = vsr_text(lip_text, api_key, llm_model)
+    
+    # Transcribed speech from video audio for comparison
+    reference_text = transcribe_speech_from_audio(video_path)
     
     # Output spoken speech
     # Identify gender and age of person speaking
