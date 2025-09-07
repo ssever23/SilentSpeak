@@ -3,6 +3,5 @@ model/
 data/
 .env
 ext/
-audio.wav
 pipeline/__pycache__
 notebooks/
