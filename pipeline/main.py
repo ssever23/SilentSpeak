@@ -10,7 +10,7 @@ from pipeline.gender_age_identifier import estimate_gender_and_age
 from pipeline.voice_picker import pick_voice
 from pipeline.tts_audio import speak_text
 
-from pipeline.audio_transciber import transcribe_speech_from_audio
+from pipeline.audio_transciption import transcribe_speech_from_audio
 
 
 def main():
