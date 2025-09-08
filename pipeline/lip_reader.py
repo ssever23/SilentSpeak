@@ -6,7 +6,7 @@ import torch
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-# --- BOOTSTRAP AV-HuBERT CLEANLY (avoid duplicate model registration) ---
+# --- BOOTSTRAP AV-HuBERT ---
 import sys, importlib, types
 from pathlib import Path
 
