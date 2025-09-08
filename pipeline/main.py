@@ -24,7 +24,7 @@ def main():
     vsr_model = "/home/ssever/SilentSpeak/model/base_vox_433h.pt"
     lip_text = predict_speech(model_path=vsr_model, npy_path=npy_file)
     
-    # Correct lip reading text with LLM
+    # Refine lip reading text with LLM
     api_key = os.getenv("GEMINI_API_KEY")
     llm_model = "gemini-2.5-pro"
     speech = vsr_text(lip_text, api_key, llm_model)
@@ -46,7 +46,7 @@ def main():
     vsr_output = (
     f"Transcription from audio:\n\n{reference_text}\n\n"
     f"Text from lip movements:\n\n{lip_text}\n\n"
-    f"Cleaned text by LLM:\n\n{speech}\n"
+    f"Refined text by LLM:\n\n{speech}\n"
     )
     
     out_txt = ga + vsr_output
