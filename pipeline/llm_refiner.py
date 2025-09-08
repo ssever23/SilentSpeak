@@ -20,7 +20,6 @@ def vsr_text(text, api_key, model):
                 \
                 Hard constraints: \
                 - Do not invent new facts, names, numbers, dates, or claims not implied by the input or optional context. \
-                - Take the overall context into account and adjust the words so that it makes sense in general terms \
                 - Keep the language the same as the input unless explicitly asked to translate.\
                 - If something is ambiguous or garbled, pick the most ordinary, context-plausible phrasing. \
                 \
