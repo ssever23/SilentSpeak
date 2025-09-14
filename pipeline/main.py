@@ -18,12 +18,15 @@ def main():
     
     video_path = input("Enter video path: ")
     
+    if preprocess_video(video_path) == 0:
+        return print("No sufficient lip movement detected!")
+    
     # Preprocess video by extracting and storing lip movements
-    npy_file,_,_ = preprocess_video(video_path)
+    npy_file, _, _ = preprocess_video(video_path)
     
     # Generate speech through lip movements
     vsr_model = Path("model/base_vox_433h.pt")
-    lip_text = predict_speech(model_path=vsr_model, npy_path=npy_file)
+    lip_text = predict_speech(model_path=str(vsr_model), npy_path=npy_file)
     
     # Refine lip reading text with LLM
     api_key = os.getenv("GEMINI_API_KEY")
@@ -33,22 +36,16 @@ def main():
     # Transcribed speech from video audio for comparison
     reference_text = transcribe_speech_from_audio(video_path)
     
-    # Create speech audio
-    # Identify gender and age of person speaking
-    _, age_median, gender = estimate_gender_and_age(video_path)
-    # Pick voice based on gender and age
-    voice = pick_voice(gender=gender, age_years=age_median)
-    # Turn VSR text into spoken speech
-    out_wav = Path("data/output_files/speech_audio.wav")
-    speech_audio = speak_text(text=speech, voice=voice, out_wav=out_wav)
-    
-    ga = f"\nGender and age of person speaking: {gender}, {age_median}\n\n"
-    
     vsr_output = (
     f"Transcription from audio:\n\n{reference_text}\n\n"
     f"Text from lip movements:\n\n{lip_text}\n\n"
     f"Refined text by LLM:\n\n{speech}\n"
     )
+    
+    # Identify gender and age of person speaking
+    _, age_median, gender = estimate_gender_and_age(video_path)
+    
+    ga = f"\nGender and age of person speaking: {gender}, {age_median}\n\n"
     
     out_txt = ga + vsr_output
     
@@ -56,10 +53,23 @@ def main():
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(out_txt)
     
-    audio_path = f"Speech audio file saved under: {speech_audio}"
+    ask_speech_audio = input("Would you like a voiced audio file of the generated speech [yes|no]: ")
     
-    return print(f"\nTexts saved under: {file_path}\n\n"
-                 f"{audio_path}")
+    if ask_speech_audio.lower() == 'yes':
+        
+        # Create speech audio
+        # Pick voice based on gender and age
+        voice = pick_voice(gender=gender, age_years=age_median)
+        # Turn VSR text into spoken speech
+        out_wav = Path("data/output_files/speech_audio.wav")
+        speech_audio = speak_text(text=speech, voice=voice, out_wav=out_wav)
+        
+        audio_path = f"Speech audio file saved under: {speech_audio}"
+        
+        return print(f"\nTexts saved under: {file_path}\n\n"
+                    f"{audio_path}")
+    else:
+        return print(f"\nTexts saved under: {file_path}")
 
 
 if __name__ == "__main__":

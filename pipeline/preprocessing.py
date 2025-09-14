@@ -104,11 +104,11 @@ def preprocess_video(
     out_dir=OUTPUT_DIR,
     save_preview=True):
     
-    if has_lip_movement(input_video_path):
+    if has_lip_movement(input_video_path)["ok"]:
         print("Sufficient lip movement detected.")
         pass
     else:
-        return "No lip movement detected in video!"
+        return 0
         
     # 1) Standardize container/FPS
     std_path = standardize_video(input_video_path, fps=target_fps)
