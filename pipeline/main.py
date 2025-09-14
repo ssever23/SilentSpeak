@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -20,8 +21,8 @@ def main():
     # Preprocess video by extracting and storing lip movements
     npy_file,_,_ = preprocess_video(video_path)
     
-    # Identify speech by lip movements
-    vsr_model = "/home/ssever/SilentSpeak/model/base_vox_433h.pt"
+    # Generate speech through lip movements
+    vsr_model = Path("model/base_vox_433h.pt")
     lip_text = predict_speech(model_path=vsr_model, npy_path=npy_file)
     
     # Refine lip reading text with LLM
@@ -38,7 +39,7 @@ def main():
     # Pick voice based on gender and age
     voice = pick_voice(gender=gender, age_years=age_median)
     # Turn VSR text into spoken speech
-    out_wav = "/home/ssever/SilentSpeak/data/output_files/speech_audio.wav"
+    out_wav = Path("data/output_files/speech_audio.wav")
     speech_audio = speak_text(text=speech, voice=voice, out_wav=out_wav)
     
     ga = f"\nGender and age of person speaking: {gender}, {age_median}\n\n"
@@ -51,7 +52,7 @@ def main():
     
     out_txt = ga + vsr_output
     
-    file_path = '/home/ssever/SilentSpeak/data/output_files/vsr_text.txt'
+    file_path = Path("data/output_files/vsr_text.txt")
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(out_txt)
     

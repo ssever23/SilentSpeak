@@ -1,5 +1,3 @@
-
-
 def pick_voice(gender: str, age_years: int, locale='en-US'):
     """
     Returns a Microsoft Edge TTS voice name keyed by locale, age band, and gender, all in English.

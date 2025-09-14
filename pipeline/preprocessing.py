@@ -5,9 +5,12 @@ os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
+from pathlib import Path
 import numpy as np
 import json, tempfile, subprocess
 from tqdm import tqdm
+
+# Custom function to check for occurence of lip movements
 from pipeline.pre_check import has_lip_movement
 
 # OpenCV for video processing
@@ -25,7 +28,7 @@ PADDING_SCALE = 1.6       # how much context around mouth (1.4–2.0 reasonable)
 SMOOTH_WIN = 5            # moving average window (frames)
 DETECT_MAX_SIDE = 720     # downscale for landmarking to save RAM/CPU
 
-OUTPUT_DIR = "/home/ssever/SilentSpeak/data/preprocessed_files/video_output"
+OUTPUT_DIR = Path("data/preprocessed_files/video_output")
 if not os.path.exists(OUTPUT_DIR):
     print(f"Creating output directory: {OUTPUT_DIR}")
     os.makedirs(OUTPUT_DIR, exist_ok=True)

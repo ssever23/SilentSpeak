@@ -11,7 +11,7 @@ def vsr_text(text, api_key, model):
         
         config=types.GenerateContentConfig(
             system_instruction="You are LipReadFixer, a text-restoration editor for noisy, punctuation-free transcripts in English produced by lip-reading VSR models.",
-            temperature=0.0),
+            temperature=0.1),
         
         contents=f"Primary goals (in this order): \
                 1. Restore readability: casing, punctuation, sentence/paragraph breaks. \

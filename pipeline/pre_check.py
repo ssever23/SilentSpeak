@@ -1,5 +1,5 @@
 # ==================================
-# Section: Checking for lip movement
+# Section 1: Checking for lip movement
 # ==================================
 
 import cv2
@@ -149,7 +149,7 @@ def has_lip_movement(
 
 
 # ======================================
-# Section: Checking for audio and speech
+# Section 2: Checking for audio and speech
 # ======================================
 
 import subprocess
