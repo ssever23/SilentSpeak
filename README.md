@@ -1,6 +1,8 @@
 # SilentSpeak
 This project processes videos of a single person speaking and generates natural-sounding audio output. The pipeline works in four main steps:
 
+0. **Lip Movement Detection** – The video is analyzed for the presence of lip movements; the pipeline is only activated if a speaker is detected.
+
 1. **Speech Extraction** – Lip movements are analyzed to extract the spoken text.
 
 2. **Text Refinement** – An LLM cleans and improves the extracted text for readability and accuracy.
@@ -9,7 +11,7 @@ This project processes videos of a single person speaking and generates natural-
 
 4. **Audio Comparison** – If the input video already contains speech audio, it is transcribed to compare with the extracted text.
 
-The result is an end-to-end system that converts silent video into clear, lifelike speech, while also supporting validation against original audio when available. Before running the pipeline, the program first checks for the presence of lip movements to ensure processing is only triggered when someone is actually speaking.
+The result is an end-to-end system that converts silent video into clear, lifelike speech, while also supporting validation against original audio when available.
 
 ![](https://github.com/ssever23/SilentSpeak/blob/main/VSR%20pipeline.jpg)
 
