@@ -11,7 +11,7 @@ This project processes videos of a single person speaking and generates natural-
 
 The result is an end-to-end system that converts silent video into clear, lifelike speech, while also supporting validation against original audio when available. Before running the pipeline, the program first checks for the presence of lip movements to ensure processing is only triggered when someone is actually speaking.
 
-![](https://github.com/ssever23/SilentSpeak/blob/main/VSR%20pipeline.png)
+![](https://github.com/ssever23/SilentSpeak/blob/main/VSR%20pipeline.jpg)
 
 ## AV-HuBERT
 
