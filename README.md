@@ -1,5 +1,17 @@
 # SilentSpeak
-An AI program that extracts speech from human lip movements in videos and voices it out.
+This project processes videos of a single person speaking and generates natural-sounding audio output. The pipeline works in four main steps:
+
+1. **Speech Extraction** – Lip movements are analyzed to extract the spoken text.
+
+2. **Text Refinement** – An LLM cleans and improves the extracted text for readability and accuracy.
+
+3. **Voice Synthesis** – The speaker’s age and gender are estimated to select an appropriate voice, which is then used to generate the final audio file.
+
+4. **Audio Comparison** – If the input video already contains speech audio, it is transcribed to compare with the extracted text.
+
+The result is an end-to-end system that converts silent video into clear, lifelike speech, while also supporting validation against original audio when available. Before running the pipeline, the program first checks for the presence of lip movements to ensure processing is only triggered when someone is actually speaking.
+
+![](https://github.com/ssever23/SilentSpeak/blob/main/VSR%20pipeline.png)
 
 ## AV-HuBERT
 
