@@ -11,7 +11,7 @@ This project processes videos of a single person speaking and generates natural-
 
 4. **Audio Comparison** – If the input video already contains speech audio, it is transcribed to compare with the extracted text.
 
-The result is an end-to-end system that converts silent video into clear, lifelike speech, while also supporting validation against original audio when available.
+The result is an end-to-end system that converts the lip movements in a video into clear, lifelike speech, while also supporting validation against original audio when available.
 
 ![](https://github.com/ssever23/SilentSpeak/blob/main/VSR%20pipeline.jpg)
 
