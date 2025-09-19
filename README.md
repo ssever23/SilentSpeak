@@ -1,5 +1,5 @@
 # SilentSpeak
-This project processes videos of a single person speaking and generates natural-sounding audio output. The pipeline works in four main steps:
+This project processes videos of a single person speaking and generates natural-sounding audio output. The pipeline works in five main steps:
 
 0. **Lip Movement Detection** – The video is analyzed for the presence of lip movements; the pipeline is only activated if a speaker is detected.
 
