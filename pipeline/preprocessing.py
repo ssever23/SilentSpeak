@@ -28,7 +28,7 @@ PADDING_SCALE = 1.6       # how much context around mouth (1.4–2.0 reasonable)
 SMOOTH_WIN = 5            # moving average window (frames)
 DETECT_MAX_SIDE = 720     # downscale for landmarking to save RAM/CPU
 
-OUTPUT_DIR = Path("data/preprocessed_files/video_output")
+OUTPUT_DIR = Path("data/preprocessed_files/lips_output")
 if not os.path.exists(OUTPUT_DIR):
     print(f"Creating output directory: {OUTPUT_DIR}")
     os.makedirs(OUTPUT_DIR, exist_ok=True)

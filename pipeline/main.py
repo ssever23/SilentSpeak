@@ -24,7 +24,7 @@ def main():
     # Preprocess video by extracting and storing lip movements
     npy_file, _, _ = preprocess_video(video_path)
     
-    # Generate speech through lip movements
+    # Generate speech text through lip movements
     vsr_model = Path("model/base_vox_433h.pt")
     lip_text = predict_speech(model_path=str(vsr_model), npy_path=npy_file)
     
