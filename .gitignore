@@ -1,6 +1,7 @@
 .vscode/
 model/
-data/
+data/preprocessed_files
+data/videos
 .env
 ext/
 pipeline/__pycache__
