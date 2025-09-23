@@ -1,7 +1,7 @@
 import asyncio, edge_tts
 
-
 async def tts_to_file(text: str, voice: str, out_wav: str, rate="+0%", pitch="+0Hz"):
+    """Convert text to speech and save as WAV file."""
     
     if voice == 'en-US-FableTurboMultilingualNeural':
         pitch = "+25Hz"
@@ -20,8 +20,9 @@ async def tts_to_file(text: str, voice: str, out_wav: str, rate="+0%", pitch="+0
             if chunk["type"] == "audio":
                 f.write(chunk["data"])
 
-
 def speak_text(text, voice, out_wav):
+    """Loads tts_to_file in an asyncio loop."""
+    
     async def runner():
         await tts_to_file(text, voice, out_wav)
         return out_wav

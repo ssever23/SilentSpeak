@@ -3,7 +3,6 @@ def pick_voice(gender: str, age_years: int, locale='en-US'):
     Returns a Microsoft Edge TTS voice name keyed by locale, age band, and gender, all in English.
     """
     
-    # coarse bands: teen, young adult, adult, senior
     if age_years is None or gender not in ('male','female'):
         # safe fallback
         return f"{locale}-AriaNeural"  # neutral/friendly female

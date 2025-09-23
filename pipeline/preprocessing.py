@@ -218,7 +218,7 @@ def preprocess_video(
     for i in tqdm(range(T), desc="Pass 2/2: crop+save (streaming)"):
         ok, frame = cap.read()
         if not ok:
-            # Some files misreport T; stop early and use the frames we've written so far
+            # Some files misreport T; stops early and uses the frames that have been written so far
             T = i
             break
 
@@ -249,19 +249,19 @@ def preprocess_video(
     # ACTUAL number of frames T (may be < reported due to read failure)
     final_shape = (int(T), roi_size, roi_size) if grayscale else (int(T), roi_size, roi_size, 3)
 
-    # Reopen the raw buffer with the correct shape and save a proper .npy
+    # Reopens the raw buffer with the correct shape and saves a proper .npy
     mm = np.memmap(out_mmap, dtype=np.float32, mode="r", shape=final_shape)
     
     np.save(out_npy, np.asarray(mm))   # creates header + data
     del mm
 
-    # optional: remove the raw streaming buffer
+    # remove the raw streaming buffer
     try:
         os.remove(out_mmap)
     except FileNotFoundError:
         pass
 
-    # ---- save metadata (now points to the REAL .npy file) ----
+    # ---- save metadata ----
     meta = {
         "source": input_video_path,
         "standardized": std_path,

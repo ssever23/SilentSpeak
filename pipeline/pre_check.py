@@ -7,7 +7,6 @@ import numpy as np
 import mediapipe as mp
 
 # Inner/outer lips landmark indices (MediaPipe FaceMesh, 468 points).
-# We'll compute mouth opening from MANY points to reduce noise.
 # Sources summarizing lip indices and FaceMesh basics: MediaPipe docs + community maps.
 UPPER_LIPS = [13, 82, 81, 42, 183, 78]      # upper inner/near-inner band (includes mid 13)
 LOWER_LIPS = [14, 87, 178, 88, 95]          # lower inner/near-inner band (includes mid 14)
@@ -54,10 +53,10 @@ def _aperture_from_many_pairs(landmarks, w, h):
 def has_lip_movement(
     video_path: str,            
     sample_fps: float = 5.0,           # sample rate for the precheck
-    min_face_fraction: float = 0.2,   # require faces in at least 35% of sampled frames
+    min_face_fraction: float = 0.2,    # require faces in at least 20% of sampled frames
     min_modulation_std: float = 0.015, # require some variance over time
     adapt_k: float = 0.6,              # how far above baseline we call it "open"
-    min_open_fraction: float = 0.20    # require at least 30% of face frames to be “open”  -> i.e. person is talking
+    min_open_fraction: float = 0.20    # require at least 20% of face frames to be “open”  -> i.e. person is talking
 ):
     
     print("Checking that there is sufficient lip movement first!")
@@ -206,8 +205,8 @@ def _pcm_stream(input_media: str, sr: int = 16000, bandpass: bool = True):
 
 def detect_speech(
     path: str,
-    aggressiveness: int = 3,     # most strict
-    frame_ms: int = 10,          # 10 ms frames reduce false positives
+    aggressiveness: int = 3,      # most strict
+    frame_ms: int = 10,           # 10 ms frames reduce false positives
     min_speech_ms: int = 1200,    # require sustained speech
     min_speech_ratio: float = 0.05,
     min_consec_frames: int = 12,  # at least ~120 ms continuous speech
@@ -227,7 +226,7 @@ def detect_speech(
     total_frames = 0
     speech_frames = 0
     consec = 0
-    consec_hits = 0  # number of times we hit >= min_consec_frames
+    consec_hits = 0  # number of times it hits >= min_consec_frames
 
     buffer = bytearray()
     for chunk in _pcm_stream(path, sr=sample_rate, bandpass=True):

@@ -29,7 +29,6 @@ sys.modules.setdefault("avhubert.hubert", hubert_mod)
 if hubert_pre_mod is not None:
     sys.modules.setdefault("avhubert.hubert_pretraining", hubert_pre_mod)
 
-# Now it's safe to let fairseq load the user_dir package; it will reuse the aliases
 from argparse import Namespace
 from fairseq import utils as fs_utils
 fs_utils.import_user_module(Namespace(user_dir=str(USER_DIR)))

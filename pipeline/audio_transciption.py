@@ -35,20 +35,11 @@ def transcribe_speech_from_audio(video_path: str):
     print(f"Detected language: {info.language} (prob={info.language_probability:.2f})")
 
     
-    # Collect plain text and also save an SRT with timestamps
+    # Collect plain text
     all_text = []
-    srt_lines = []
     for i, seg in enumerate(segments, start=1):
         all_text.append(seg.text)
-        start = seg.start
-        end = seg.end
-        # SRT time format
-        def t(s):
-            h = int(s//3600); m = int((s%3600)//60); ss = s%60
-            return f"{h:02}:{m:02}:{int(ss):02},{int((ss-int(ss))*1000):03}"
-        srt_lines += [str(i), f"{t(start)} --> {t(end)}", seg.text.strip(), ""]
 
-    
     # Write outputs
     all_text = "".join(all_text)
     

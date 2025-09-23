@@ -48,10 +48,6 @@ def estimate_gender_and_age(video_path, sample_stride=5):
         
     cap.release()
     
-    #if len(ages) < max(5, min_frames):
-    #    return None, None, None, {"frames_analyzed": len(ages)}
-    
-    
     age_arr = np.array(ages, dtype=float)
     # robust smoothing: median is less sensitive; also clip to plausible range
     age_median = int(np.clip(np.median(age_arr), 5, 90)) if ages else None

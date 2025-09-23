@@ -2,7 +2,7 @@ from google import genai
 from google.genai import types
 
 def vsr_text(text, api_key, model):
-    
+    """Refine lip reading text with LLM"""
     client = genai.Client(api_key=api_key)
 
     try:
