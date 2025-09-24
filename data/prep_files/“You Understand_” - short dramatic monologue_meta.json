@@ -1,5 +1,5 @@
 {
-  "source": "/home/ssever/SilentSpeak/data/input_video/\u201cYou Understand_\u201d - short dramatic monologue.mp4",
+  "source": "data/input_video/\u201cYou Understand_\u201d - short dramatic monologue.mp4",
   "standardized": "/tmp/vsr_tmp_standardized.mp4",
   "fps": 25.0,
   "target_fps": 25,
