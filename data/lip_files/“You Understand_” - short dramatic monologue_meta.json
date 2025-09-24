@@ -1,0 +1,32 @@
+{
+  "source": "/home/ssever/SilentSpeak/data/input_video/\u201cYou Understand_\u201d - short dramatic monologue.mp4",
+  "standardized": "/tmp/vsr_tmp_standardized.mp4",
+  "fps": 25.0,
+  "target_fps": 25,
+  "roi_size": 88,
+  "grayscale": true,
+  "padding_scale": 1.6,
+  "smooth_win": 5,
+  "num_frames": 2401,
+  "shape": [
+    2401,
+    88,
+    88
+  ],
+  "boxes_first_last": [
+    [
+      595,
+      267,
+      685,
+      357
+    ],
+    [
+      589,
+      244,
+      684,
+      338
+    ]
+  ],
+  "data_file": "\u201cYou Understand_\u201d - short dramatic monologue_frames.npy",
+  "format": "npy"
+}
