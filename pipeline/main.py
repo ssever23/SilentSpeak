@@ -1,6 +1,4 @@
 import os
-from dotenv import load_dotenv
-load_dotenv()
 
 from pipeline.preprocessing import preprocess_video
 from pipeline.lip_reader import predict_speech
