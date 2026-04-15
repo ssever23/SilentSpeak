@@ -20,7 +20,7 @@ def vsr_text(text, api_key, model):
                 \
                 Hard constraints: \
                 - Do not invent new facts, names, numbers, dates, or claims not implied by the input or optional context. \
-                - Do not any non-speech text like [laughter], [inaudible], timestamps, or any other annotations. \
+                - Do not add any non-speech text like [laughter], [inaudible], timestamps, or any other annotations. \
                 - Keep the language the same as the input unless explicitly asked to translate.\
                 - If something is ambiguous or garbled, pick the most ordinary, context-plausible phrasing. \
                 - Check your finished work for any nonsensical, contradictory statements and change or remove those. \
