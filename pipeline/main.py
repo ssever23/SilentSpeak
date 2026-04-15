@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from pipeline.preprocessing import preprocess_video
 from pipeline.lip_reader import predict_speech
@@ -35,8 +38,12 @@ def main():
 
     # Refine lip reading text with LLM
     api_key = os.getenv("GEMINI_API_KEY")
-    llm_model = "gemini-2.5-pro"
+    if not api_key:
+        raise ValueError("GEMINI_API_KEY is not set. Load your .env file or export it in the shell.")
+    llm_model = "gemini-3-flash-preview"
     speech = vsr_text(lip_text, api_key, llm_model)
+    if speech is None: 
+        print(f"LLM refinement failed. The model '{llm_model}' may be unavailable or your API tier may not support it.")
 
     # Transcribed speech from video audio for comparison
     reference_text = transcribe_speech_from_audio(video_path)
@@ -57,7 +64,11 @@ def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with TEXT_OUTPUT_PATH.open('w', encoding='utf-8') as f:
         f.write(out_txt)
-
+        
+    if speech is None:
+        print(f"\nTexts saved under: {TEXT_OUTPUT_PATH}")
+        return
+    
     ask_speech_audio = input("Would you like a voiced audio file of the generated speech [yes|no]: ")
 
     if ask_speech_audio.lower() == 'yes':
@@ -69,10 +80,12 @@ def main():
 
         audio_path = f"Speech audio file saved under: {speech_audio}"
 
-        return print(f"\nTexts saved under: {TEXT_OUTPUT_PATH}\n\n"
+        print(f"\nTexts saved under: {TEXT_OUTPUT_PATH}\n\n"
                     f"{audio_path}")
+        return
     else:
-        return print(f"\nTexts saved under: {TEXT_OUTPUT_PATH}")
+        print(f"\nTexts saved under: {TEXT_OUTPUT_PATH}")
+        return 
 
 
 if __name__ == "__main__":
