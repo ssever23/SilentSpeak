@@ -40,7 +40,7 @@ def main():
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
         raise ValueError("GEMINI_API_KEY is not set. Load your .env file or export it in the shell.")
-    llm_model = "gemini-3-flash-preview"
+    llm_model = "gemini-3.1-pro-preview"
     speech = vsr_text(lip_text, api_key, llm_model)
     if speech is None: 
         print(f"LLM refinement failed. The model '{llm_model}' may be unavailable or your API tier may not support it.")
