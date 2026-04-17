@@ -12,7 +12,7 @@ def pick_voice(gender: str, age_years: int, locale='en-US'):
     elif age_years <= 18:
         return f"{locale}-AvaNeural" if gender=='female' else f"{locale}-RogerNeural"
     elif age_years <= 25:
-        return f"{locale}-JennyMultilingualNeural" if gender=='female' else f"{locale}-BrianMultilingualNeural"
+        return f"{locale}-JennyNeural" if gender=='female' else f"{locale}-BrianMultilingualNeural"
     elif age_years <= 40:
         return f"{locale}-AriaNeural" if gender=='female' else f"{locale}-GuyNeural"
     elif age_years <= 65:
