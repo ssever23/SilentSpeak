@@ -74,6 +74,8 @@ model/base_vox_433h.pt
 GEMINI_API_KEY=your_api_key_here
 ```
 
+The current implementation uses Gemini for LLM refinement. You can use another LLM provider, but you will likely need to update the API call in `pipeline/llm_refiner.py`. The refinement prompt itself can be kept and reused.
+
 4. Run the pipeline from the project root:
 
 ```bash
