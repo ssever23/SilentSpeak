@@ -68,6 +68,8 @@ git clone https://github.com/facebookresearch/av_hubert.git
 model/base_vox_433h.pt
 ```
 
+AV-HuBERT checkpoints can be downloaded from the official [AV-HuBERT checkpoint page](https://facebookresearch.github.io/av_hubert/).
+
 3. Create a `.env` file in the project root and add your Gemini API key:
 
 ```env
