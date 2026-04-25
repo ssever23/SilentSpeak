@@ -23,7 +23,7 @@ AUDIO_OUTPUT_PATH = OUTPUT_DIR / "speech_audio.wav"
 
 
 def main():
-    video_path = input("Enter video path: ")
+    video_path = input("Enter a video path: ")
     
     # Preprocess video by extracting and storing lip movements
     preprocess_result = preprocess_video(video_path)
