@@ -48,7 +48,7 @@ You understand? Yeah, I mean, of course you would say that. It's such a typical 
 
 </details>
 
-### Result
+### Conclusion
 
 The word error rate (WER) between the original speech transcript and the raw VSR output is **58.24%**.
 After refinement with the LLM, that number decreases to **23.53%**.
