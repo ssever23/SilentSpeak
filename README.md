@@ -1,7 +1,7 @@
 # SilentSpeak
 Visual Speech Recognition (VSR) models are capable of detecting a large proportion of spoken words from a video of a person speaking. However, the resulting transcriptions are typically incoherent, lack punctuation and contain significant errors. To address this limitation, this project introduces a pipeline that integrates a Large Language Model (LLM) to refine the raw VSR output, leveraging the semantic and contextual understanding power of LLMs to reconstruct more accurate and meaningful text.
 
-The full pipeline processes a video of a single visible speaker and generates natural-sounding audio output. It works in five main steps:
+The full pipeline processes the lip movements of a single visible speaker in a video and generates natural-sounding audio output. It works in five main steps:
 
 1. **Lip Movement Detection** – Checks whether the video contains sufficient visible lip movement.
 
