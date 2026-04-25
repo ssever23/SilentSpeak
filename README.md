@@ -59,7 +59,7 @@ Although the WER remains relatively high after refinement, it primarily reflects
 1. Create an `ext` named folder in the project root and clone the [AV-HuBERT repository](https://github.com/facebookresearch/av_hubert) into it:
 
 ```bash
-git clone https://github.com/facebookresearch/av_hubert.git ext/av_hubert
+git clone https://github.com/facebookresearch/av_hubert.git
 ```
 
 2. Place an AV-HuBERT checkpoint in the `model/` directory. By default, the model path in main.py looks for:
