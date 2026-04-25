@@ -53,7 +53,7 @@ You understand? Yeah, I mean, of course you would say that. It's such a typical 
 The word error rate (WER) between the original speech transcript and the raw VSR output is **58.24%**.
 After refinement with the LLM, that number decreases to **23.53%**.
 
-Although the LLM refinement substantially improves the VSR output, the remaining error rate is still notable compared to the original transcript. However, these errors mainly reflects wording or syntactic differences rather than semantic changes. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
+Although the LLM refinement substantially improves the VSR output, the remaining error rate is still notable compared to the original transcript. However, these errors mainly reflect wording or syntactic differences rather than semantic changes. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
 
 ## How to run
 
