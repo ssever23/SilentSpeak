@@ -1,8 +1,7 @@
 .vscode/
-model/
+model/*.pt
 data/preprocessed_files
 data/videos
 .env
-ext/
 pipeline/__pycache__
 notebooks/
