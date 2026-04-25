@@ -62,13 +62,11 @@ Although the WER remains relatively high after refinement, it primarily reflects
 git clone https://github.com/facebookresearch/av_hubert.git
 ```
 
-2. Place an AV-HuBERT checkpoint in the `model/` directory. By default, the model path in main.py looks for:
+2. Place an AV-HuBERT checkpoint in the `model/` directory. AV-HuBERT checkpoints can be downloaded from the official [AV-HuBERT checkpoint page](https://facebookresearch.github.io/av_hubert/). By default, the model path in main.py looks for:
 
 ```text
 model/base_vox_433h.pt
 ```
-
-AV-HuBERT checkpoints can be downloaded from the official [AV-HuBERT checkpoint page](https://facebookresearch.github.io/av_hubert/).
 
 3. Create a `.env` file in the project root and add your Gemini API key:
 
