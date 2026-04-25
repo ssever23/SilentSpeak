@@ -52,7 +52,51 @@ You understand? Yeah, I mean, of course you can say that. It's such a typical th
 The word error rate (WER) between the original speech transcript and the raw VSR output is **58.24%**.
 After refinement with the LLM, that number decreases to **38.24%**.
 
-Although the WER remains relatively high after refinment, it primarily reflects syntactic mismatches rather than differences in meaning. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
+Although the WER remains relatively high after refinement, it primarily reflects syntactic mismatches rather than differences in meaning. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
+
+## How to run
+
+1. Create an `ext` named folder in the project root and clone the [AV-HuBERT repository](https://github.com/facebookresearch/av_hubert) into it:
+
+```bash
+git clone https://github.com/facebookresearch/av_hubert.git ext/av_hubert
+```
+
+2. Place an AV-HuBERT checkpoint in the `model/` directory. By default, the model path in main.py looks for:
+
+```text
+model/base_vox_433h.pt
+```
+
+3. Create a `.env` file in the project root and add your Gemini API key:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+4. Run the pipeline from the project root:
+
+```bash
+python3 -m pipeline.main
+```
+
+5. When prompted, enter the path to the input video:
+
+```text
+Enter video path: data/input_video/example.mp4
+```
+
+The generated text output is saved to:
+
+```text
+data/output_files/vsr_text.txt
+```
+
+If you choose to generate speech audio, the `.wav` file is saved to:
+
+```text
+data/output_files/speech_audio.wav
+```
 
 ## Limitations
 
