@@ -11,7 +11,7 @@ The full pipeline processes the lip movements of a single visible speaker in a v
 
 4. **Voice Synthesis** – Estimates the speaker's age and gender, selects a matching voice, and generates a natural-sounding audio output as a `.wav` file.
 
-5. **Audio Comparison** – If the input video contains audio, transcribes it and compares it with the VSR-derived text.
+5. **Audio Comparison** – If the input video contains audio, transcribes it and compares it with the LLM-refined VSR text.
 
 The result is an end-to-end system that converts the lip movements from a video into clear, lifelike speech, while also supporting validation against original audio when available.
 
@@ -43,16 +43,17 @@ you understand yeah i mean of course you can say that such a typical thing for t
 <details>
 <summary><strong>LLM-refined output</strong></summary>
 
-You understand? Yeah, I mean, of course you can say that. It's such a typical thing for a therapist to say. You know what? Let's just cut the crap. I'm not stupid. I know you couldn't care less about me or my problems. All you really care about is the money from this session. So, let's make a deal. I'll sit here on my phone, and you can do whatever it is you do. My mom will be happy because I'm here, and you'll be happy because you get your money. So, do we have a deal? Or would you rather we just continue this charade? You, playing the therapist who pretends to care about her clients, and me, the gullible patient who thinks I've finally found someone who wants to help me. Either way, you get your money. That's all you really want, isn't it?
+You understand? Yeah, I mean, of course you would say that. It's such a typical thing for a therapist to say. You know what? Let's just cut the crap, right? I'm not stupid. I know that you couldn't care less about me or my problems. All you really care about is the money at the end of the session. So, you know what? Let's make a deal. I'm fine with just sitting here and playing on my phone. You can do whatever it is you do. My mom will be happy because I'm here, and you'll be happy because you get your money. So, do we have a deal? Or would you rather just continue being a fake therapist that pretends to care about her clients, and I'll just go on being the gullible patient who thinks I finally have someone who wants to help me? Either way, you get your money. And since that's all you really want... what do you say?
+
 
 </details>
 
 ### Result
 
 The word error rate (WER) between the original speech transcript and the raw VSR output is **58.24%**.
-After refinement with the LLM, that number decreases to **38.24%**.
+After refinement with the LLM, that number decreases to **23.53%**.
 
-Although the WER remains relatively high after refinement, it primarily reflects syntactic mismatches rather than differences in meaning. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
+Although the LLM refinement substantially improves the VSR output, the remaining error rate is still notable compared to the original transcript. However, these errors mainly reflects wording or syntactic differences rather than semantic changes. A semantic comparison reveals that while the raw VSR output diverges substantially from the original speech, the refined version preserves its core meaning and intent almost entirely. This suggests that LLM-based refinement can help turn noisy visual speech recognition output into coherent and meaningful text, even when the result is not an exact transcript.
 
 ## How to run
 
