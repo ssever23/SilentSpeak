@@ -27,13 +27,6 @@ The example below uses an [actor’s monologue](https://www.youtube.com/watch?v=
 | LLM-refined output | Raw VSR text only | Cleaned and reconstructed text generated without access to the video or audio |
 
 <details>
-<summary><strong>Original audio transcript</strong></summary>
-
-You understand? Yeah, I mean, of course you'd say that. Such a typical thing for a therapist to say. You know what? Let's just cut the crap, alright? I'm not stupid. I know that you could care less about me or my problems. And all you really care about is getting that money at the end of this session. So you know what? Let's make a deal. You know, I'm fine with just sitting here an hour a week on my phone. You can do whatever it is that you do. Then my mom will be happy because I'm here and you'll be happy because you get your money. Now do we have a deal? Or would you rather just keep playing this fake sympathetic therapist that pretends to care about her clients and I'll just go along being the gullible patient who thinks that I finally have someone who wants to help me. Either way, you get your money and I understand that's all you really want. And scene.
-
-</details>
-
-<details>
 <summary><strong>Raw VSR output</strong></summary>
 
 you understand yeah i mean of course you can say that such a typical thing for the top so you say oh you know what let's just on the crap right i'm not stupid i know that you can hear less time to care less time about me who would be problems and all you really care about is that that money at that discussion so you know what you know what let's make a dealer i'm fine when she's sitting here and how are we on my phone you can do whatever it's like you do i think my mom will be happy because the mirror and and you'll be happy because it gets your money and i also have a deal or would you rather just complain this finger simulating therapist that pretends to care about her clients and all just going on me and the carbon patient who thinks that i finally have someone who wants to help me wants to help me in a way you get your money and you say that's all you really want really was i said
@@ -45,6 +38,13 @@ you understand yeah i mean of course you can say that such a typical thing for t
 
 You understand? Yeah, I mean, of course you would say that. It's such a typical thing for a therapist to say. You know what? Let's just cut the crap, right? I'm not stupid. I know that you couldn't care less about me or my problems. All you really care about is the money at the end of the session. So, you know what? Let's make a deal. I'm fine with just sitting here and playing on my phone. You can do whatever it is you do. My mom will be happy because I'm here, and you'll be happy because you get your money. So, do we have a deal? Or would you rather just continue being a fake therapist that pretends to care about her clients, and I'll just go on being the gullible patient who thinks I finally have someone who wants to help me? Either way, you get your money. And since that's all you really want... what do you say?
 
+
+</details>
+
+<details>
+<summary><strong>Original audio transcript</strong></summary>
+
+You understand? Yeah, I mean, of course you'd say that. Such a typical thing for a therapist to say. You know what? Let's just cut the crap, alright? I'm not stupid. I know that you could care less about me or my problems. And all you really care about is getting that money at the end of this session. So you know what? Let's make a deal. You know, I'm fine with just sitting here an hour a week on my phone. You can do whatever it is that you do. Then my mom will be happy because I'm here and you'll be happy because you get your money. Now do we have a deal? Or would you rather just keep playing this fake sympathetic therapist that pretends to care about her clients and I'll just go along being the gullible patient who thinks that I finally have someone who wants to help me. Either way, you get your money and I understand that's all you really want. And scene.
 
 </details>
 
@@ -86,7 +86,7 @@ python3 -m pipeline.main
 5. When prompted, enter the path to the input video:
 
 ```text
-Enter video path: data/input_video/example.mp4
+Enter a video path: data/input_video/example.mp4
 ```
 
 The generated text output is saved to:
