@@ -13,7 +13,7 @@ def transcribe_speech_from_audio(video_path: str):
     if speech_check["has_speech"]:
         pass
     else:
-        return "Video file doesn't contain speech!"
+        return "Video file has no speech audio!"
     
     model_size = "small"
     #device = "cuda" if torch.cuda.is_available() else "cpu"

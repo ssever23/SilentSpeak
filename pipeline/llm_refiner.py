@@ -25,7 +25,7 @@ def vsr_text(text, api_key, model):
                 - If something is ambiguous or garbled, pick the most ordinary, context-plausible phrasing. \
                 - Check your finished work for any nonsensical, contradictory statements and change or remove those. \
                 - Check your finished work for any words that do not make sense in context and change or remove them and recheck your work again. \
-                - Remove any duplicate sentences than don't make sense in context. \
+                - Remove any duplicate sentences that don't make sense in context. \
                 \
                 Editing latitude: \
                 - You may reorder words, replace terms, merge/split sentences, and add punctuation for clarity. \
