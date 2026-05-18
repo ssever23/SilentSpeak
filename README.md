@@ -69,7 +69,7 @@ git clone https://github.com/facebookresearch/av_hubert.git
 model/base_vox_433h.pt
 ```
 
-3. Create a `.env` file in the project root and add your Gemini API key:
+3. Create a `.env` file in the project root and add your LLM api key:
 
 ```env
 GEMINI_API_KEY=your_api_key_here
