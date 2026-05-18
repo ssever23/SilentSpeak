@@ -14,7 +14,6 @@ from pipeline.tts_audio import speak_text
 
 from pipeline.audio_transciption import transcribe_speech_from_audio
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 MODEL_PATH = PROJECT_ROOT / "model" / "base_vox_433h.pt"
 OUTPUT_DIR = PROJECT_ROOT / "data" / "output_files"

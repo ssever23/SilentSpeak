@@ -1,10 +1,11 @@
 import cv2, numpy as np
 from insightface.app import FaceAnalysis
+from typing import Optional, Tuple
 
 
-def estimate_gender_and_age(video_path, sample_stride=5):
+def estimate_gender_and_age(video_path: str, sample_stride: int = 5) -> Tuple[Optional[int], Optional[int], Optional[str]]:
     """
-    Returns (age_mean, age_median, gender_mode, stats_dict) from visual frames.
+    Returns (age_mean, age_median, gender_mode) from visual frames.
     - sample_stride: analyze every Nth frame for speed
     - gender: 'male' or 'female' (string), based on per-frame argmax logits
     """
